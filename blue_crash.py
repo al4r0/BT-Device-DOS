@@ -38,6 +38,7 @@ if len(sys.argv) >= 3:
          threads.append(t)
          t.start()
 
+
    def obtener_longitud():
       global caracteres
       while 1:
@@ -51,10 +52,7 @@ if len(sys.argv) >= 3:
             main(int(sys.argv[2]))
          except:
             caracteres = caracteres - 1
-				if (caracteres <= 1):
-					break
-					break
-					sys.exit
+	
 
    obtener_longitud()
 
